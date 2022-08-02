@@ -1,0 +1,47 @@
+{
+	"id": "4C42FE95-5C12-ED11-BD6E-000D3AB1D9FF",
+	"createdAt": "2022-08-02T12:13:59.126Z",
+	"createdBy": "kristin.eliassen@neptune-software.com",
+	"git": {
+		"targetServers": [],
+		"remote": "https://github.com/neptune-software-marketplace/neptunesoftware-dxp-abb-customlogin",
+		"testServers": []
+	},
+	"name": "neptunesoftware-dxp-abb-customlogin",
+	"description": null,
+	"ver": "22.8.2.1215",
+	"enableCICD": true,
+	"apps": [
+		{
+			"id": "84534A0E-68B2-4692-92B2-36B23BFAAB94",
+			"ver": "22.8.2.1414",
+			"application": "planet9_custom_login",
+			"title": "Planet 9 Login",
+			"description": "Planet 9 Login"
+		}
+	],
+	"api": [],
+	"odataMock": [],
+	"odataSource": [],
+	"dictionary": [],
+	"jsclass": [],
+	"jsscript_group": [],
+	"theme": [],
+	"pdf": [],
+	"rulesengine": [],
+	"reports": [],
+	"api_authentication": [],
+	"api_group": [],
+	"tile": [],
+	"category": [],
+	"launchpad": [],
+	"certificates": [],
+	"role": [],
+	"systems": [],
+	"doc": [],
+	"wf_notifications": [],
+	"wf_definition": [],
+	"department": [],
+	"script_scheduler": [],
+	"connector": []
+}
