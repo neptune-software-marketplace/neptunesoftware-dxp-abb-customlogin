@@ -1,0 +1,59 @@
+var logonid = inLoginTypes.getSelectedKey() || "local";
+var logonType = ModelData.FindFirst(formLogons, "id", logonid);
+
+inLoginName.setValueState();
+inLoginPassword.setValueState();
+
+var rec = {
+    username: inLoginName.getValue().toLowerCase(),
+    password: inLoginPassword.getValue(),
+    logonid: logonid
+};
+
+// Custom Login App - Mobile Client
+if (isMobile) {
+    AppCache.LogonCustom(rec);
+    inLoginName.setValue();
+    inLoginPassword.setValue();
+    return;
+}
+
+if (inLoginName.getVisible() && !rec.username) {
+    if (!rec.username) inLoginName.setValueState("Error");
+    return;
+}
+
+if (inLoginPassword.getVisible() && !rec.password) {
+    if (!rec.password) inLoginPassword.setValueState("Error");
+    return;
+}
+
+// Logon local
+if (logonid === "local") {
+    logonLocal(rec);
+    return;
+}
+
+switch (logonType.type) {
+
+    case "azure-bearer":
+        AppCacheLogonAzure.Logon(logonType);
+        break;
+
+    case "saml":
+        logonSAML(logonType);
+        break;
+
+    case "ldap":
+        logonLDAP(rec, logonType);
+        break;
+
+    case "oauth2":
+        logonOauth2(logonType);
+        break;
+
+    default:
+        console.error("Unhandled logon type");
+        break;
+
+}

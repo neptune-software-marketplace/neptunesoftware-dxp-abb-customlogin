@@ -1,0 +1,10 @@
+var logonid = inLoginTypes.getSelectedKey() || "local";
+var logonType = ModelData.FindFirst(formLogons, "id", logonid);
+
+switch (logonType.type) {
+
+    case "azure-bearer":
+        AppCacheLogonAzure.Logoff(logonType);
+        break;
+
+}

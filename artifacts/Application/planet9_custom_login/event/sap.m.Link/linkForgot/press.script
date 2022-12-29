@@ -1,0 +1,4 @@
+inForgotUsername.setValue();
+inForgotUsername.setValueState();
+formLogin.setVisible(false);
+formForgot.setVisible(true);

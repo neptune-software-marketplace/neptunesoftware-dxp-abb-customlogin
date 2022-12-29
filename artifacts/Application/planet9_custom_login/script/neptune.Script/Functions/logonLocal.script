@@ -1,0 +1,36 @@
+function logonLocal(rec) {
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "/user/logon/local",
+        data: JSON.stringify(rec),
+        success: function (data) {
+            if (data.status === "UpdatePassword") {
+                const url = new URL(location.href);
+
+                url.searchParams.append(
+                    "token",
+                    data.link.split("/")[data.link.split("/").length - 1] || "other"
+                );
+                url.searchParams.append("reason", data.reason || "other");
+                location.replace(url.toString());
+
+            } else {
+                location.reload(true);
+            }
+        },
+        error: function (result, status, other) {
+            if (result.status === 401) {
+                inLoginName.setValueState("Error");
+                inLoginPassword.setValueState("Error");
+                sap.m.MessageToast.show(txtWrongUsernamePassword.getText());
+            } else {
+                if (result.responseJSON) {
+                    sap.m.MessageToast.show(result.status + ": " + result.responseJSON.status);
+                } else {
+                    sap.m.MessageToast.show(result.status + ": " + result.statusText);
+                }
+            }
+        },
+    });
+}

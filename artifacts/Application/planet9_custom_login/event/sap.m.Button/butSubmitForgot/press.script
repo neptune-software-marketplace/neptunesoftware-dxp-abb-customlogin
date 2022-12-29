@@ -1,0 +1,6 @@
+if (!inForgotUsername.getValue()) {
+    inForgotUsername.setValueState("Error");
+} else {
+    inForgotUsername.setValueState();
+    logonScreen.forgotPassword();
+}
