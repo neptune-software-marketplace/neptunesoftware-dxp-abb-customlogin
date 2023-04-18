@@ -168,7 +168,10 @@ var AppCacheLogonAzure = {
             prompt: prompt,
             response_type: "code"
         };
-
+        if (loginHint) {
+            delete data.prompt
+            data.login_hint = loginHint
+        }
         return this._authUrl("authorize") + $.param(data);
     },
 
