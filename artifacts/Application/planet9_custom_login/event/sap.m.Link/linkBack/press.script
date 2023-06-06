@@ -1,2 +1,0 @@
-formLogin.setVisible(true);
-formForgot.setVisible(false);

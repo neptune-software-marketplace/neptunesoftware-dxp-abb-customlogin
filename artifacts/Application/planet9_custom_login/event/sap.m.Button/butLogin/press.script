@@ -1,10 +1,10 @@
-var logonid = inLoginTypes.getSelectedKey() || "local";
-var logonType = ModelData.FindFirst(formLogons, "id", logonid);
+let logonid = inLoginTypes.getSelectedKey() || 'local';
+let logonType = ModelData.FindFirst(formLogons, 'id', logonid);
 
 inLoginName.setValueState();
 inLoginPassword.setValueState();
 
-var rec = {
+let rec = {
     username: inLoginName.getValue().toLowerCase(),
     password: inLoginPassword.getValue(),
     logonid: logonid
@@ -19,41 +19,49 @@ if (isMobile) {
 }
 
 if (inLoginName.getVisible() && !rec.username) {
-    if (!rec.username) inLoginName.setValueState("Error");
+    if (!rec.username) inLoginName.setValueState('Error');
     return;
 }
 
 if (inLoginPassword.getVisible() && !rec.password) {
-    if (!rec.password) inLoginPassword.setValueState("Error");
+    if (!rec.password) inLoginPassword.setValueState('Error');
     return;
 }
 
 // Logon local
-if (logonid === "local") {
+if (logonid === 'local') {
     logonLocal(rec);
     return;
 }
 
 switch (logonType.type) {
 
-    case "azure-bearer":
+    case 'sap':
+        logonSAP(rec, logonType);       
+        break;
+
+    case 'azure-bearer':
         AppCacheLogonAzure.Logon(logonType);
         break;
 
-    case "saml":
+    case 'saml':
         logonSAML(logonType);
         break;
 
-    case "ldap":
+    case 'ldap':
         logonLDAP(rec, logonType);
         break;
 
-    case "oauth2":
+    case 'oauth2':
         logonOauth2(logonType);
         break;
 
+    case 'openid-connect':
+        logonOpenIDConnect(logonType);
+        break;
+
     default:
-        console.error("Unhandled logon type");
+        console.error('Unhandled logon type');
         break;
 
 }

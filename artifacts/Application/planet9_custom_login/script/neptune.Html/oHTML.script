@@ -1,4 +1,16 @@
 <style>
+    :root {
+        --backgroundImage: url(/public/images/neptune-dxp-wallpaper-bottom.png), url(/public/images/neptune-dxp-wallpaper-left.png), url(/public/images/neptune-dxp-wallpaper-right.png);
+    }
+
+    .nepNavigationPage {
+        background: inherit;
+        background-image: var(--backgroundImage);
+        background-repeat: no-repeat, no-repeat, no-repeat;
+        background-size: cover, contain, contain;
+        background-position: center bottom, left top, right bottom;
+    }
+
     .nepPanLinks .sapMTB {
         border-bottom: none;
         margin-top: 20px;
@@ -6,11 +18,13 @@
 
     .nepPanLogon {
         border-bottom: none;
-        background-color: rgba(255, 255, 255, 0.9);
+        background-color: var(--nepBaseColor);
+        opacity: 0.9;
+        box-shadow: 0 0 1rem 0 rgb(180 180 180 / 30%);
     }
 
     .sapUiTheme-sap_fiori_3_dark .nepPanLogon {
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: rgba(0, 0, 0, 0.5);
     }
 
     .nepPanLogonBorder {
