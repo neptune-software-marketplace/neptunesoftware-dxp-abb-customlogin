@@ -1329,7 +1329,7 @@
 														},
 														{
 															"fieldNo": "8a77f662-6234-43f2-ce37-c48650567f7b",
-															"fieldName": "inNewPassword1",
+															"fieldName": "inNewPassword2",
 															"fieldParent": "5d064a65-2d26-45cb-e2df-1ae6754545b3",
 															"fieldType": "sap.m.Input",
 															"script": "",
@@ -2007,7 +2007,7 @@
 		}
 	],
 	"componentInterface": [],
-	"ver": "23.6.6.1318",
+	"ver": "23.6.13.172",
 	"application": "planet9_custom_login",
 	"title": "Planet 9 Login",
 	"description": "Planet 9 Login",
