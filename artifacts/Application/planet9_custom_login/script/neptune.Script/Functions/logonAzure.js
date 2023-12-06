@@ -97,9 +97,16 @@ let AppCacheLogonAzure = {
     _loginMsal: async function () {
         this.InitMsal();
         const nonce = await setSessionNonce('azure-bearer', this.options.path);
-        this.msalObj.loginPopup({ scopes: this.loginScopes, prompt: 'select_account', nonce }).then(function (response) {
+        this.msalObj.loginPopup({ scopes: this.loginScopes, prompt: 'select_account', nonce }).then((response) => {
             localStorage.setItem('p9azuretokenv2', JSON.stringify(response));
-            AppCacheLogonAzure._loginP9(response.idToken);
+
+            // only login if MSAL v2 is able to fetch any accounts, otherwise it will produce login errors in the launchpad
+            const accounts = this.msalObj.getAllAccounts();
+            if (Array.isArray(accounts) && accounts.length > 0) {
+                AppCacheLogonAzure._loginP9(response.idToken);
+            } else {
+                sap.m.MessageToast.show('MSAL v2 failed to fetch any accounts after login');
+            }
         }).catch(function (error) {
             panLogon.setBusy(false);
             if (error && error.toString().indexOf('Failed to fetch') > -1) {

@@ -290,7 +290,7 @@
 															"data": [
 																{
 																	"fieldNo": "948214ea-4c53-4e86-ffcc-b45246a6fed8",
-																	"fieldName": "txtLoginSubTitle",
+																	"fieldName": "txtLoginSubTitle1",
 																	"fieldParent": "a69d0ca7-902b-4f7a-f243-a314d8dd2a14",
 																	"fieldType": "sap.m.Title",
 																	"script": "",
@@ -317,7 +317,7 @@
 																},
 																{
 																	"fieldNo": "3542d897-fed5-4bd4-97b5-f3d43faffc6d",
-																	"fieldName": "txtLoginSubTitle1",
+																	"fieldName": "txtLoginSubTitle2",
 																	"fieldParent": "a69d0ca7-902b-4f7a-f243-a314d8dd2a14",
 																	"fieldType": "sap.m.Title",
 																	"script": "",
@@ -2007,7 +2007,7 @@
 		}
 	],
 	"componentInterface": [],
-	"ver": "23.6.13.172",
+	"ver": "23.12.6.1139",
 	"application": "planet9_custom_login",
 	"title": "Planet 9 Login",
 	"description": "Planet 9 Login",
@@ -2046,6 +2046,8 @@
 	"compilerTarget": 3,
 	"tabWidth": null,
 	"printWidth": null,
+	"generateVersionOnActivation": false,
+	"activationHistoryCount": 0,
 	"apis": [],
 	"package": "4c42fe95-5c12-ed11-bd6e-000d3ab1d9ff"
 }

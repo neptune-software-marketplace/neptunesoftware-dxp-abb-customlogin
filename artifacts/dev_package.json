@@ -9,14 +9,17 @@
 	},
 	"name": "neptunesoftware-dxp-abb-customlogin",
 	"description": null,
-	"ver": "22.8.2.1215",
+	"ver": "23.12.6.1326",
 	"enableCICD": true,
 	"apps": [
 		{
 			"id": "84534a0e-68b2-4692-92b2-36b23bfaab94",
 			"application": "planet9_custom_login",
 			"title": "Planet 9 Login",
-			"description": "Planet 9 Login"
+			"description": "Planet 9 Login",
+			"package": {
+				"id": "4c42fe95-5c12-ed11-bd6e-000d3ab1d9ff"
+			}
 		}
 	],
 	"api": [],
@@ -44,7 +47,6 @@
 	"wf_definition": [],
 	"connector": [],
 	"events": [],
-	"media_library": [],
 	"code_snippets": [],
 	"wf_determination": [],
 	"wf_taskaction": []
