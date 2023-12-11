@@ -224,25 +224,24 @@ let AppCacheLogonAzure = {
     },
 
     _waitForPopupDesktop: function (popupWin, onClose) {
-
         let url = '';
         let winCheckTimer = setInterval(function () {
-
             try {
-                url = popupWin.location.href || '';
-            } catch (e) {
+                url = popupWin.location.href ?? '';
+            } catch (err) {
+                // otherwise it would error out on accessing string functions
+                url = '';
 
+                if (err.name === 'SecurityError') {
+                    // we are unable to read location.href
+                } else {
+                    console.log('_waitForPopupDesktop popupWin', popupWin, 'error', err);
+                }
             }
 
-            if (url.indexOf('state=') > -1) {
-                console.log(url);
-            }
+            if (url.indexOf('state=') > -1 || url.indexOf('nonce=') > -1) console.log(url);
 
-            if (url.indexOf('nounce=') > -1) {
-                console.log(url);
-            }
-
-            if (popupWin.closed) {
+            if (popupWin.closed || url.indexOf('error=') > -1) {
                 clearInterval(winCheckTimer);
                 panLogon.setBusy(false);
             }
