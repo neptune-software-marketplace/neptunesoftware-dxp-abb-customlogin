@@ -1,6 +1,6 @@
 <style>
     :root {
-        --backgroundImage: url(/public/images/neptune-dxp-wallpaper-bottom.png), url(/public/images/neptune-dxp-wallpaper-left.png), url(/public/images/neptune-dxp-wallpaper-right.png);
+        --backgroundImage: url(public/images/background.svg)
     }
 
     .nepNavigationPage {
