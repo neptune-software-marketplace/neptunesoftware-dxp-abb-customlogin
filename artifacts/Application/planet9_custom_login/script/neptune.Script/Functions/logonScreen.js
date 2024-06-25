@@ -330,7 +330,7 @@ let logonScreen = {
 
                     jQuery.sap.require('sap.m.MessageBox');
 
-                    let responseMsg = (result.responseText === "Unauthorized") ? "The link has expired. Please request a new password reset link." : result.responseText;
+                    let responseMsg = (result.responseText === "Unauthorized") ? "The link has expired. Please request a new password reset link." : result.responseJSON.status;
                     
                     sap.m.MessageBox.show(responseMsg, {
                         title: 'Error',
