@@ -9,7 +9,7 @@
 	},
 	"name": "neptunesoftware-dxp-abb-customlogin",
 	"description": null,
-	"ver": "24.06.25.1239",
+	"ver": "24.06.27.0959",
 	"enableCICD": true,
 	"apps": [
 		{
