@@ -1,0 +1,26 @@
+let rec = {};
+rec.username = inLoginName.getValue();
+
+if (!rec.username) {
+    inLoginName.setValueState("Error");
+    return;
+}
+
+let fullpath = location.pathname;
+
+if (fullpath) {
+    let path = fullpath.split("/");
+
+    switch (path[1]) {
+        case "launchpad":
+            rec.type = path[1];
+            rec.launchpad = path[2];
+            break;
+        default:
+            location.href = "/";
+            return;
+    }
+    logonScreen.requestActivationCode(rec);
+} else {
+    location.href = "/";
+}
